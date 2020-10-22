@@ -9,7 +9,7 @@ library(tidyverse)
 
 # Summerising the data 
 
-df %>% group_by(group) %>% summarise(mean = mean(x), n = length(n), sd = sd(x))
+df %>% group_by(group) %>% summarise(mean = mean(x), n = length(n), sdev = sd(x))
 
 # A tibble: 2 x 4
 # group   mean     n    sd
@@ -18,6 +18,10 @@ df %>% group_by(group) %>% summarise(mean = mean(x), n = length(n), sd = sd(x))
 #  2 group2  15.7     1  4.62
 
 
+# Plotting the data
+
+df %>% ggplot(aes(x = group, y = x))+
+  geom_boxplot()
 
 
 
